@@ -38,27 +38,6 @@ if __name__ == '__main__':
 
     # Oversampling on imbalanced class column 0:3613, 1:387
     #print("Class distribution", Counter(y_train))
-    """ 
-    cluster = Counter(y_train)[0]
-    majority_class_ind = y_train[y_train== 0].index
-
-    X_majority = X_train.loc[majority_class_ind]
-    kmeans = KMeans(n_clusters=cluster)
-    kmeans.fit(X_majority)
-    X_majority['cluster'] = kmeans.predict(X_majority)
-
-    # extract medoids
-    medoids = X_majority.groupby('cluster').median()
-
-    monority_ind = y_train[y_train == 1].index
-
-    X_minority = X_train.loc(monority_ind)
-
-    X_train_balanced = pd.concat([X_minority, medoids], axis=0)
-    y_train_balanced = y_train.loc(X_train_balanced.index)
-
-    print(y_train_balanced)
-    """
 
     # oversampling = RandomOverSampler(random_state=3)
     # X_train_resampl, y_train_resampl = oversampling.fit_resample(X_train, y_train)
